@@ -202,7 +202,7 @@ export async function updateCustomer(id: string, prevState: StateCustomer, formD
     const validatedFields = UpdateCustomer.safeParse({
         name: formData.get("name"),
         email: formData.get("email"),
-        image: formData.get("image"),
+        // image: formData.get("image"),
     });
 
     //If form validation fails, return errors early. Otherwise, continue.
@@ -227,6 +227,6 @@ export async function updateCustomer(id: string, prevState: StateCustomer, formD
     }
 
     // Revalidate the cache for the invoices page and redirect the user.
-    revalidatePath('/dashboard/invoices');
-    redirect('/dashboard/invoices');
+    revalidatePath('/dashboard/customers');
+    redirect('/dashboard/customers');
 }

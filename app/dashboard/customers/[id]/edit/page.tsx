@@ -1,11 +1,11 @@
-import Form from '@/app/ui/invoices/edit-form';
+import Form from '@/app/ui/customers/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchCustomerById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Update Customer',
+  title: 'Edit Customer',
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      
+      <Form customer={customer}/>
     </main>
   );
 }

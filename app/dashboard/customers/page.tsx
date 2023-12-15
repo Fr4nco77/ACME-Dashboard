@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CustomersTable from '@/app/ui/customers/table';
 import { Suspense } from 'react';
 import { fetchCustomersPages } from '@/app/lib/data';
-import { TableRowSkeleton } from '@/app/ui/skeletons';
+import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import Pagination from '@/app/ui/invoices/pagination';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
@@ -34,7 +34,7 @@ export default async function Customers({
         <Search placeholder="Search customers..." />
         <CreateCustomer />
       </div>
-      <Suspense key={query + currentPage}fallback={<TableRowSkeleton />}>
+      <Suspense key={query + currentPage}fallback={<InvoicesTableSkeleton />}>
         <CustomersTable query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">

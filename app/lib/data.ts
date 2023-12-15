@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  CustomerForm,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -263,8 +264,8 @@ export async function fetchCustomerById(id: string) {
   noStore();
 
   try {
-    const customer = await sql`
-      SELECT * FROM customers WHERE id = '${id}';
+    const customer = await sql<CustomerForm>`
+      SELECT * FROM customers WHERE id = ${id};
     `;
 
     return customer.rows[0];
