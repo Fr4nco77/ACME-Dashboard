@@ -87,7 +87,7 @@ export type InvoiceForm = {
   status: 'pending' | 'paid';
 };
 
-export type State = {
+export type StateInvoice = {
   errors?: {
     customerId?: string[];
     amount?: string[];
@@ -95,3 +95,12 @@ export type State = {
   };
   message?: string | null;
 };
+
+export type StateCustomer = {
+  errors?: {
+    name?: string[];
+    email?: string[];
+    image?: string[];
+  };
+  message?: string | null
+}
